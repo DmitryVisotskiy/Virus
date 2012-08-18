@@ -1,14 +1,16 @@
-#ifndef enemies.h
-#define enemies.h
+#ifndef enemies_h
+#define enemies_h
 #include<vector>
 
 class Enemy
 {
 	public:
-		Enemy( int iX, int iY );
+		Enemy( int x, int y );
 		void Move();
 		void Die();
-		void Apeqr();
+		void Apear();
+		int GetX();
+		int GetY();
 	private:
 		Enemy() {};
 		int e_health;

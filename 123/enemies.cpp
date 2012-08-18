@@ -1,11 +1,24 @@
 #include"enemies.h"
-extern int h, w;
 
-Enemy::Enemy( int iX, int iY )
+Enemy::Enemy(int x, int y)
 {
-	e_x = iX;
-	e_y = iY;
+	e_x = x;
+	e_y = y;
 	e_health = 1;
 	e_symbol = 'O';
 }
 
+int Enemy::GetX()
+{
+	return e_x;
+}
+
+int Enemy::GetY()
+{
+	return e_y;
+}
+
+void Enemy::Move()
+{
+e_y=e_y+1;
+}
