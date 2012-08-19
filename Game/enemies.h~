@@ -1,0 +1,25 @@
+#ifndef enemies_h
+#define enemies_h
+#include<vector>
+
+class Enemy
+{
+	public:
+		Enemy( int x, int y );
+		void Move();
+		void Die();
+		void Apear();
+		void SetX(int x);
+		void SetY(int y);
+		int GetX();
+		int GetY();
+	public:
+		int static const e_symbol;
+
+	private:
+		Enemy() {};
+		int e_health;
+		int e_x;
+		int e_y;
+};
+#endif
