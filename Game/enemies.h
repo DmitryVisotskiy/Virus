@@ -1,6 +1,10 @@
 #ifndef enemies_h
 #define enemies_h
+
+#include"laser.h"
+
 #include<vector>
+
 
 class Enemy
 {
@@ -9,16 +13,18 @@ class Enemy
 		void Move();
 		void Die();
 		void Apear();
-		void SetX(int x);
+		void SetX(int x); 
 		void SetY(int y);
 		int GetX();
 		int GetY();
 		char GetSymbol();
+		Bullet * Fire();
 	private:
 		Enemy() {};
 		int e_health;
 		int e_x;
 		int e_y;
-		int e_symbol;
+		char e_symbol;
+		Laser * e_laser;
 };
 #endif

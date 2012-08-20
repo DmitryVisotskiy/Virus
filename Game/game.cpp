@@ -1,6 +1,9 @@
 #include"gameworld.h"
 #include"enemies.h"
+#include"laser.h"
+
 #include<iostream>
+
 int main()
 {
 GameWorld GameWorld1;

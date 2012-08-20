@@ -2,6 +2,8 @@
 #define enemies_h
 #include<vector>
 
+#include"laser.h"
+
 class Enemy
 {
 	public:
@@ -9,17 +11,18 @@ class Enemy
 		void Move();
 		void Die();
 		void Apear();
-		void SetX(int x);
+		void SetX(int x); 
 		void SetY(int y);
 		int GetX();
 		int GetY();
-	public:
-		int static const e_symbol;
-
+		char GetSymbol();
+		Bullet * Fire();
 	private:
 		Enemy() {};
 		int e_health;
 		int e_x;
 		int e_y;
+		char e_symbol;
+		Laser * e_laser;
 };
 #endif

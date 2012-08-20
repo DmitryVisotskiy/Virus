@@ -1,4 +1,5 @@
 #include"enemies.h"
+#include"laser.h"
 
 
 Enemy::Enemy(int x, int y)
@@ -7,6 +8,7 @@ Enemy::Enemy(int x, int y)
 	e_y = y;
 	e_health = 1;
 	e_symbol = 'V';
+	e_laser = new Laser();
 }
 
 
@@ -46,6 +48,10 @@ void Enemy::Move()
 }
 
 
+Bullet * Enemy::Fire()
+{
+	return e_laser->BulletShot( e_x + 1, e_y );
+}
 
 
 

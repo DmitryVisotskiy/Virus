@@ -1,12 +1,15 @@
 #include"gameworld.h"
 #include"enemies.h"
+#include"laser.h"
+
 #include<vector>
 #include<iostream>
-
+#include<cstdlib>
 
 	
 GameWorld::GameWorld()
 { 
+	gw_symbol = '.';
 	std::vector<char> vector;
 	for(int i=0;i<w;i++)
 		vector.push_back(gw_symbol);
@@ -63,10 +66,12 @@ void GameWorld::gw_Draw()
 
 
 
-void GameWorld::MoveAndUpdate()
+void GameWorld::Update()
 {
 	for(int j=enemies.size()-1;j>=0;j--)
 	{
+		//move
+		
 		int x=enemies[j].GetX();
 		int y=enemies[j].GetY();
 		enemies[j].Move();
@@ -80,6 +85,16 @@ void GameWorld::MoveAndUpdate()
 			enemies[j].SetX(x);
 			enemies[j].SetY(y);		
 		}
+
+
+		//fire
+
+		if(rand() % 3)
+		{
+			table[b_y][b_x]=b_symbol;	
+			bullets.push_back(enemies[j].Fire());
+		}
+		
 	}
 	GameWorld::gw_Draw();
 
@@ -94,7 +109,7 @@ void GameWorld::StartGame()
 	int j=GameWorld::h-enemies.back().GetY();	
 	for(int i=1;i<j;i++)
 	{
-		GameWorld::MoveAndUpdate();
+		GameWorld::Update();
 		usleep(time_update);
 	}
 }
