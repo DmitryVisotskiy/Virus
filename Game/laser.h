@@ -10,9 +10,13 @@ class Bullet
 		Bullet( int x, int y );
 		void Move();	
 		void Die();
+		void SetX(int x); 
+		void SetY(int y);
+		int GetX();
+		int GetY();
+		char GetSymbol();
 	private:
 		Bullet();
-
 	private: 
 		int b_x;
 		int b_y;

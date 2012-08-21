@@ -14,7 +14,7 @@ class Enemy
 		void Die();
 		void Apear();
 		void SetX(int x); 
-		void SetY(int y);
+		void SetY(float y);
 		int GetX();
 		int GetY();
 		char GetSymbol();
@@ -23,7 +23,7 @@ class Enemy
 		Enemy() {};
 		int e_health;
 		int e_x;
-		int e_y;
+		float e_y;
 		char e_symbol;
 		Laser * e_laser;
 };

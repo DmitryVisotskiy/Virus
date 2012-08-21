@@ -16,5 +16,38 @@ Bullet::Bullet( int x, int y )
 
 void Bullet::Move()
 {
-	b_y=b_y+2;
+	b_y=b_y+1;
 }
+
+
+int Bullet::GetX()
+{
+	return b_x;
+}
+
+
+int Bullet::GetY()
+{
+	return b_y;
+}
+
+
+char Bullet::GetSymbol()
+{
+	return b_symbol;
+}
+
+
+void Bullet::SetX(int x)
+{
+	b_x = x;
+}
+
+
+void Bullet::SetY(int y)
+{
+	b_y = y;
+}
+
+
+

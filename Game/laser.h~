@@ -3,13 +3,6 @@
 
 #include<vector>
 
-class Laser
-{
-	public:
-		Bullet * BulletShot( int x, int y );
-};
-
-
 
 class Bullet
 {
@@ -17,13 +10,21 @@ class Bullet
 		Bullet( int x, int y );
 		void Move();	
 		void Die();
+		int GetX();
+		int GetY();
+		char GetSymbol();
 	private:
 		Bullet();
-
 	private: 
 		int b_x;
 		int b_y;
 		char b_symbol;
+};
+
+class Laser
+{
+	public:
+		Bullet * BulletShot( int x, int y );
 };
 
 #endif

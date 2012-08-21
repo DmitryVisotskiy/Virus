@@ -1,8 +1,10 @@
 #ifndef enemies_h
 #define enemies_h
-#include<vector>
 
 #include"laser.h"
+
+#include<vector>
+
 
 class Enemy
 {
@@ -21,7 +23,7 @@ class Enemy
 		Enemy() {};
 		int e_health;
 		int e_x;
-		int e_y;
+		float e_y;
 		char e_symbol;
 		Laser * e_laser;
 };

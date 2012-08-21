@@ -36,7 +36,7 @@ void Enemy::SetX(int x)
 }
 
 
-void Enemy::SetY(int y)
+void Enemy::SetY(float y)
 {
 	e_y = y;
 }
@@ -44,13 +44,13 @@ void Enemy::SetY(int y)
 
 void Enemy::Move()
 {
-	e_y=e_y+1;
+	e_y=e_y+0.5;
 }
 
 
 Bullet * Enemy::Fire()
 {
-	return e_laser->BulletShot( e_x + 1, e_y );
+	return e_laser->BulletShot( e_x, e_y + 1);
 }
 
 

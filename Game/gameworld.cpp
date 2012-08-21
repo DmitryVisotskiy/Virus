@@ -68,31 +68,51 @@ void GameWorld::gw_Draw()
 
 void GameWorld::Update()
 {
+	for(int j=0;j<bullets.size();j++)
+	{
+		int x=bullets[j]->GetX();
+		int y=bullets[j]->GetY();
+		bullets[j]->Move();	
+		if (table[bullets[j]->GetY()][bullets[j]->GetX()]=gw_symbol && bullets[j]->GetY()<h)	
+		{
+			table[y][x]=gw_symbol;			
+			table[bullets[j]->GetY()][bullets[j]->GetX()]=bullets[j]->GetSymbol();		
+		}
+		else
+		{
+			bullets[j]->SetX(x);
+			bullets[j]->SetY(y);		
+		}
+	}
+
 	for(int j=enemies.size()-1;j>=0;j--)
 	{
 		//move
 		
 		int x=enemies[j].GetX();
-		int y=enemies[j].GetY();
+		float y=enemies[j].GetY();
 		enemies[j].Move();
-		if (table[enemies[j].GetY()][enemies[j].GetX()]=gw_symbol)	
+		if((int)y!=(int)enemies[j].GetY())
 		{
-			table[y][x]=gw_symbol;			
-			table[enemies[j].GetY()][enemies[j].GetX()]=enemies[j].GetSymbol();		
+			if (table[(int)enemies[j].GetY()][enemies[j].GetX()]=gw_symbol)	
+			{
+				table[y][x]=gw_symbol;			
+				table[(int)enemies[j].GetY()][enemies[j].GetX()]=enemies[j].GetSymbol();		
+			}
+			else
+			{
+				enemies[j].SetX(x);
+				enemies[j].SetY(y);		
+			}
 		}
-		else
-		{
-			enemies[j].SetX(x);
-			enemies[j].SetY(y);		
-		}
-
-
+		
 		//fire
 
-		if(rand() % 3)
-		{
-			table[b_y][b_x]=b_symbol;	
-			bullets.push_back(enemies[j].Fire());
+		if(rand() % 20 <1)
+		{	
+			Bullet * newBullet = enemies[j].Fire();
+			bullets.push_back(newBullet);
+			table[newBullet->GetY()][newBullet->GetX()]=newBullet->GetSymbol();
 		}
 		
 	}
